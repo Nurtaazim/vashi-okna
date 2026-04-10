@@ -296,6 +296,7 @@
             z-index: 1;
         }
 
+        .hero-bg video,
         .hero-bg img {
             width: 100%;
             height: 100%;
@@ -1340,7 +1341,10 @@
     <!-- HERO -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="hero-bg.jpg" alt="Панорамные окна с видом на город">
+            <video autoplay muted loop playsinline>
+                <source src="hero-video.mp4" type="video/mp4">
+            </video>
+            <img src="hero-bg.jpg" alt="Панорамные окна с видом на город" style="display:none;">
         </div>
         <div class="container">
             <h1>Ваши Окна — качество, которое вы видите каждый день</h1>
