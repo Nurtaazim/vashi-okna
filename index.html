@@ -280,14 +280,11 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        /* ===== HERO ===== */
-        .hero {
-            min-height: 100vh;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
+        /* ===== HERO + WHY WRAPPER ===== */
+        .hero-wrapper {
             position: relative;
             overflow: hidden;
+            background: var(--primary);
         }
 
         .hero-bg {
@@ -309,6 +306,13 @@
             inset: 0;
             background: rgba(0, 0, 0, 0.55);
             z-index: 2;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
         }
 
         .hero .container {
@@ -378,8 +382,18 @@
         /* ===== WHY US ===== */
         .why-us {
             padding: 120px 0;
-            background: var(--white);
+            background: transparent;
             text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .why-us .section-title {
+            color: var(--white);
+        }
+
+        .why-us .section-subtitle {
+            color: rgba(255, 255, 255, 0.85);
         }
 
         .why-us-grid {
@@ -1344,14 +1358,16 @@
         <a href="#contacts" class="btn btn-primary" onclick="closeMobile()">Получить консультацию</a>
     </div>
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
+    <!-- HERO + WHY US (общий видеофон) -->
+    <div class="hero-wrapper">
         <div class="hero-bg">
             <video autoplay muted loop playsinline>
                 <source src="hero-video.mp4" type="video/mp4">
             </video>
             <img src="hero-bg.jpg" alt="Панорамные окна с видом на город" style="display:none;">
         </div>
+
+    <section class="hero" id="hero">
         <div class="container">
             <h1><span style="color: var(--primary);">ВАШИ</span> ОКНА</h1>
             <p class="hero-tagline">Качество, которое вы видите каждый день</p>
@@ -1414,6 +1430,8 @@
             </div>
         </div>
     </section>
+    </div>
+    <!-- /HERO + WHY US -->
 
     <!-- SERVICES -->
     <section class="services" id="services">
