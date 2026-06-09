@@ -9,7 +9,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="canonical" href="https://vashi-okna.pages.dev/">
+    <link rel="icon" href="logo.png">
+    <meta name="theme-color" content="#1B7EC2">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ваши Окна — Пластиковые и алюминиевые окна в Бишкеке">
+    <meta property="og:description" content="Производство и установка пластиковых и алюминиевых окон в Бишкеке. Фасады, раздвижные двери. Бесплатный замер. Гарантия 5 лет.">
+    <meta property="og:image" content="https://vashi-okna.pages.dev/hero-bg.jpg">
+    <meta property="og:url" content="https://vashi-okna.pages.dev/">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ваши Окна — окна в Бишкеке">
+    <meta name="twitter:description" content="Производство и установка пластиковых и алюминиевых окон в Бишкеке.">
+    <meta name="twitter:image" content="https://vashi-okna.pages.dev/hero-bg.jpg">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Ваши Окна","description":"Производство и установка пластиковых и алюминиевых окон в Бишкеке. Фасады, раздвижные двери.","url":"https://vashi-okna.pages.dev/","image":"https://vashi-okna.pages.dev/hero-bg.jpg","logo":"https://vashi-okna.pages.dev/logo.png","areaServed":"Бишкек","address":{"@type":"PostalAddress","addressLocality":"Бишкек","addressCountry":"KG"},"openingHours":"Mo-Sa 09:00-18:00"}</script>
+    <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
     <style>
         /* ===== RESET & BASE ===== */
         *, *::before, *::after {
@@ -20,6 +36,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 140px;
         }
 
         body {
@@ -251,6 +268,10 @@
             gap: 5px;
             cursor: pointer;
             z-index: 1001;
+            background: none;
+            border: none;
+            padding: 12px;
+            margin: -12px;
         }
 
         .burger span {
@@ -293,8 +314,7 @@
             z-index: 1;
         }
 
-        .hero-bg video,
-        .hero-bg img {
+        .hero-bg video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -673,6 +693,12 @@
             font-size: 36px;
             cursor: pointer;
             transition: transform 0.3s;
+            background: none;
+            border: none;
+            padding: 0;
+            line-height: 1;
+            appearance: none;
+            -webkit-appearance: none;
         }
 
         .lightbox-close:hover {
@@ -1317,6 +1343,13 @@
             }
         }
 
+        /* ===== REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+            *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+        }
+
         /* ===== COUNTERS ===== */
         .counter {
             font-family: 'Montserrat', sans-serif;
@@ -1340,11 +1373,11 @@
                 <a href="#contacts">Контакты</a>
             </div>
             <a href="#contacts" class="btn btn-primary nav-cta desktop-only">Получить консультацию</a>
-            <div class="burger" id="burger">
+            <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -1361,10 +1394,9 @@
     <!-- HERO + WHY US (общий видеофон) -->
     <div class="hero-wrapper">
         <div class="hero-bg">
-            <video autoplay muted loop playsinline>
-                <source src="hero-video.mp4" type="video/mp4">
+            <video id="heroVideo" muted loop playsinline preload="none" poster="hero-bg.jpg" aria-hidden="true">
+                <source data-src="hero-video.mp4" type="video/mp4">
             </video>
-            <img src="hero-bg.jpg" alt="Панорамные окна с видом на город" style="display:none;">
         </div>
 
     <section class="hero" id="hero">
@@ -1379,15 +1411,15 @@
             <div class="hero-trust">
                 <div class="trust-item">
                     <i class="fas fa-check-circle"></i>
-                    <span><strong class="counter" data-target="10">0</strong> лет на рынке</span>
+                    <span><strong class="counter" data-target="10">10</strong> лет на рынке</span>
                 </div>
                 <div class="trust-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Более <strong class="counter" data-target="5000">0</strong> объектов</span>
+                    <span>Более <strong class="counter" data-target="5000">5000</strong> объектов</span>
                 </div>
                 <div class="trust-item">
                     <i class="fas fa-check-circle"></i>
-                    <span>Гарантия <strong class="counter" data-target="5">0</strong> лет</span>
+                    <span>Гарантия <strong class="counter" data-target="5">5</strong> лет</span>
                 </div>
             </div>
         </div>
@@ -1441,7 +1473,7 @@
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-card-img">
-                        <img src="plastic-windows.jpg" alt="Пластиковые окна ПВХ" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img loading="lazy" decoding="async" src="plastic-windows.jpg" alt="Пластиковые окна ПВХ" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="img-placeholder" style="display:none;"><span><i class="fas fa-window-maximize"></i><br>Пластиковые окна</span></div>
                     </div>
                     <div class="service-card-body">
@@ -1452,7 +1484,7 @@
                 </div>
                 <div class="service-card reveal">
                     <div class="service-card-img">
-                        <img src="aluminum-windows.jpg" alt="Алюминиевые окна" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img loading="lazy" decoding="async" src="aluminum-windows.jpg" alt="Алюминиевые окна" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="img-placeholder" style="display:none;"><span><i class="fas fa-border-all"></i><br>Алюминиевые окна</span></div>
                     </div>
                     <div class="service-card-body">
@@ -1463,7 +1495,7 @@
                 </div>
                 <div class="service-card reveal">
                     <div class="service-card-img">
-                        <img src="facades.jpg" alt="Алюминиевые фасады зданий" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img loading="lazy" decoding="async" src="facades.jpg" alt="Алюминиевые фасады зданий" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="img-placeholder" style="display:none;"><span><i class="fas fa-building"></i><br>Фасады</span></div>
                     </div>
                     <div class="service-card-body">
@@ -1474,7 +1506,7 @@
                 </div>
                 <div class="service-card reveal">
                     <div class="service-card-img">
-                        <img src="sliding-doors.jpg" alt="Раздвижные двери" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img loading="lazy" decoding="async" src="sliding-doors.jpg" alt="Раздвижные двери" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="img-placeholder" style="display:none;"><span><i class="fas fa-door-open"></i><br>Раздвижные двери</span></div>
                     </div>
                     <div class="service-card-body">
@@ -1485,7 +1517,7 @@
                 </div>
                 <div class="service-card reveal">
                     <div class="service-card-img">
-                        <img src="installation.jpg" alt="Установка окон мастером" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img loading="lazy" decoding="async" src="installation.jpg" alt="Установка окон мастером" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="img-placeholder" style="display:none;"><span><i class="fas fa-truck"></i><br>Доставка и установка</span></div>
                     </div>
                     <div class="service-card-body">
@@ -1505,22 +1537,22 @@
             <p class="section-subtitle reveal">Современное оборудование и контроль качества на каждом этапе</p>
             <div class="production-grid">
                 <div class="production-item reveal">
-                    <img src="gallery-5.jpg" alt="Производственная линия окон">
+                    <img loading="lazy" decoding="async" src="gallery-5.jpg" alt="Производственная линия окон">
                 </div>
                 <div class="production-item reveal">
-                    <img src="gallery-1.jpg" alt="Станок для резки профиля">
+                    <img loading="lazy" decoding="async" src="gallery-1.jpg" alt="Станок для резки профиля">
                 </div>
                 <div class="production-item reveal">
-                    <img src="gallery-2.jpg" alt="Автоматизированное оборудование KABAN">
+                    <img loading="lazy" decoding="async" src="gallery-2.jpg" alt="Автоматизированное оборудование KABAN">
                 </div>
                 <div class="production-item reveal">
-                    <img src="gallery-3.jpg" alt="Ручная обработка профиля">
+                    <img loading="lazy" decoding="async" src="gallery-3.jpg" alt="Ручная обработка профиля">
                 </div>
                 <div class="production-item reveal">
-                    <img src="gallery-4.jpg" alt="Линия сварки профилей">
+                    <img loading="lazy" decoding="async" src="gallery-4.jpg" alt="Линия сварки профилей">
                 </div>
                 <div class="production-item reveal">
-                    <img src="production.jpg" alt="Станок ЧПУ для обработки рам">
+                    <img loading="lazy" decoding="async" src="production.jpg" alt="Станок ЧПУ для обработки рам">
                 </div>
             </div>
         </div>
@@ -1562,31 +1594,31 @@
             <h2 class="section-title reveal">Наши работы</h2>
             <p class="section-subtitle reveal">Примеры выполненных проектов</p>
             <div class="gallery-grid">
-                <div class="gallery-item reveal" onclick="openLightbox(this)">
-                    <img src="gallery-1.jpg" alt="Станок для резки профиля">
+                <div class="gallery-item reveal" role="button" tabindex="0" aria-label="Открыть изображение" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this)}">
+                    <img loading="lazy" decoding="async" src="gallery-1.jpg" alt="Станок для резки профиля">
                 </div>
-                <div class="gallery-item reveal" onclick="openLightbox(this)">
-                    <img src="gallery-2.jpg" alt="Автоматизированное оборудование">
+                <div class="gallery-item reveal" role="button" tabindex="0" aria-label="Открыть изображение" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this)}">
+                    <img loading="lazy" decoding="async" src="gallery-2.jpg" alt="Автоматизированное оборудование">
                 </div>
-                <div class="gallery-item reveal" onclick="openLightbox(this)">
-                    <img src="gallery-3.jpg" alt="Обработка оконного профиля">
+                <div class="gallery-item reveal" role="button" tabindex="0" aria-label="Открыть изображение" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this)}">
+                    <img loading="lazy" decoding="async" src="gallery-3.jpg" alt="Обработка оконного профиля">
                 </div>
-                <div class="gallery-item reveal" onclick="openLightbox(this)">
-                    <img src="gallery-4.jpg" alt="Линия сварки профилей">
+                <div class="gallery-item reveal" role="button" tabindex="0" aria-label="Открыть изображение" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this)}">
+                    <img loading="lazy" decoding="async" src="gallery-4.jpg" alt="Линия сварки профилей">
                 </div>
-                <div class="gallery-item reveal" onclick="openLightbox(this)">
-                    <img src="gallery-5.jpg" alt="Производственная линия">
+                <div class="gallery-item reveal" role="button" tabindex="0" aria-label="Открыть изображение" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this)}">
+                    <img loading="lazy" decoding="async" src="gallery-5.jpg" alt="Производственная линия">
                 </div>
-                <div class="gallery-item reveal" onclick="openLightbox(this)">
-                    <img src="gallery-6.jpg" alt="Готовые оконные рамы">
+                <div class="gallery-item reveal" role="button" tabindex="0" aria-label="Открыть изображение" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this)}">
+                    <img loading="lazy" decoding="async" src="gallery-6.jpg" alt="Готовые оконные рамы">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- LIGHTBOX -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close"><i class="fas fa-times"></i></span>
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения" onclick="closeLightbox()">
+        <button class="lightbox-close" type="button" aria-label="Закрыть"><i class="fas fa-times"></i></button>
         <img id="lightboxImg" src="" alt="">
     </div>
 
@@ -1663,15 +1695,15 @@
                     <form id="contactForm" onsubmit="handleSubmit(event)">
                         <div class="form-group">
                             <label for="name">Ваше имя</label>
-                            <input type="text" id="name" placeholder="Введите ваше имя" required>
+                            <input type="text" id="name" name="name" autocomplete="name" placeholder="Введите ваше имя" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Номер телефона</label>
-                            <input type="tel" id="phone" placeholder="+996 XXX XXX XXX" required>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" pattern="[0-9+()\s-]{7,}" placeholder="+996 XXX XXX XXX" required>
                         </div>
                         <div class="form-group">
                             <label for="service">Услуга</label>
-                            <select id="service">
+                            <select id="service" name="service" required>
                                 <option value="" disabled selected>Выберите услугу</option>
                                 <option value="plastic">Пластиковые окна</option>
                                 <option value="aluminum">Алюминиевые окна</option>
@@ -1682,7 +1714,7 @@
                         </div>
                         <div class="form-group">
                             <label for="comment">Комментарий</label>
-                            <textarea id="comment" placeholder="Расскажите о вашем проекте..."></textarea>
+                            <textarea id="comment" name="comment" placeholder="Расскажите о вашем проекте..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width:100%; border:none;">Отправить заявку</button>
                     </form>
@@ -1697,8 +1729,8 @@
     <!-- SERVICE MODALS -->
     <!-- Пластиковые окна -->
     <div class="modal-overlay" id="modal-plastic" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModalById('modal-plastic')"><i class="fas fa-times"></i></button>
+        <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+            <button class="modal-close" type="button" aria-label="Закрыть" onclick="closeModalById('modal-plastic')"><i class="fas fa-times"></i></button>
             <div class="modal-header">
                 <h2>Пластиковые окна</h2>
                 <p>Качественные ПВХ-окна с отличной тепло- и звукоизоляцией для любого помещения</p>
@@ -1743,8 +1775,8 @@
 
     <!-- Алюминиевые окна -->
     <div class="modal-overlay" id="modal-aluminum" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModalById('modal-aluminum')"><i class="fas fa-times"></i></button>
+        <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+            <button class="modal-close" type="button" aria-label="Закрыть" onclick="closeModalById('modal-aluminum')"><i class="fas fa-times"></i></button>
             <div class="modal-header">
                 <h2>Алюминиевые окна</h2>
                 <p>Лёгкие и прочные конструкции для современных зданий и панорамного остекления</p>
@@ -1788,8 +1820,8 @@
 
     <!-- Фасады -->
     <div class="modal-overlay" id="modal-facades" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModalById('modal-facades')"><i class="fas fa-times"></i></button>
+        <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+            <button class="modal-close" type="button" aria-label="Закрыть" onclick="closeModalById('modal-facades')"><i class="fas fa-times"></i></button>
             <div class="modal-header">
                 <h2>Алюминиевые фасады</h2>
                 <p>Современные фасадные системы для жилых и коммерческих зданий</p>
@@ -1832,8 +1864,8 @@
 
     <!-- Раздвижные двери -->
     <div class="modal-overlay" id="modal-sliding" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModalById('modal-sliding')"><i class="fas fa-times"></i></button>
+        <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+            <button class="modal-close" type="button" aria-label="Закрыть" onclick="closeModalById('modal-sliding')"><i class="fas fa-times"></i></button>
             <div class="modal-header">
                 <h2>Раздвижные двери</h2>
                 <p>Элегантные раздвижные системы, которые экономят пространство и добавляют стиль</p>
@@ -1876,8 +1908,8 @@
 
     <!-- Доставка и установка -->
     <div class="modal-overlay" id="modal-installation" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModalById('modal-installation')"><i class="fas fa-times"></i></button>
+        <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+            <button class="modal-close" type="button" aria-label="Закрыть" onclick="closeModalById('modal-installation')"><i class="fas fa-times"></i></button>
             <div class="modal-header">
                 <h2>Доставка и установка</h2>
                 <p>Полный комплекс услуг от транспортировки до финальной отделки</p>
@@ -1971,7 +2003,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2025 Ваши Окна. Все права защищены.
+                &copy; 2026 Ваши Окна. Все права защищены.
             </div>
         </div>
     </footer>
@@ -1979,9 +2011,16 @@
     <script>
         // ===== NAVBAR SCROLL =====
         const navbar = document.getElementById('navbar');
+        let scrollTicking = false;
         window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        });
+            if (!scrollTicking) {
+                requestAnimationFrame(() => {
+                    navbar.classList.toggle('scrolled', window.scrollY > 50);
+                    scrollTicking = false;
+                });
+                scrollTicking = true;
+            }
+        }, { passive: true });
 
         // ===== BURGER MENU =====
         const burger = document.getElementById('burger');
@@ -1990,12 +2029,15 @@
         burger.addEventListener('click', () => {
             burger.classList.toggle('active');
             mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            const open = mobileMenu.classList.contains('active');
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            document.body.style.overflow = open ? 'hidden' : '';
         });
 
         function closeMobile() {
             burger.classList.remove('active');
             mobileMenu.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
         }
 
@@ -2047,19 +2089,25 @@
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
 
+        let lastLightboxTrigger = null;
         function openLightbox(item) {
             const img = item.querySelector('img');
             if (img) {
+                lastLightboxTrigger = document.activeElement;
                 lightboxImg.src = img.src;
                 lightboxImg.alt = img.alt;
                 lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                const closeBtn = lightbox.querySelector('.lightbox-close');
+                if (closeBtn) closeBtn.focus();
             }
         }
 
         function closeLightbox() {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
+            if (lastLightboxTrigger && lastLightboxTrigger.focus) { lastLightboxTrigger.focus(); }
+            lastLightboxTrigger = null;
         }
 
         document.addEventListener('keydown', (e) => {
@@ -2075,18 +2123,28 @@
             installation: 'modal-installation'
         };
 
+        let lastModalTrigger = null;
         function openModal(type) {
             const modal = document.getElementById(modalMap[type]);
             if (modal) {
+                lastModalTrigger = document.activeElement;
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                const closeBtn = modal.querySelector('.modal-close');
+                if (closeBtn) closeBtn.focus();
             }
+        }
+
+        function restoreModalFocus() {
+            if (lastModalTrigger && lastModalTrigger.focus) { lastModalTrigger.focus(); }
+            lastModalTrigger = null;
         }
 
         function closeModal(event) {
             if (event.target.classList.contains('modal-overlay')) {
                 event.target.classList.remove('active');
                 document.body.style.overflow = '';
+                restoreModalFocus();
             }
         }
 
@@ -2095,23 +2153,40 @@
             if (modal) {
                 modal.classList.remove('active');
                 document.body.style.overflow = '';
+                restoreModalFocus();
             }
         }
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay.active').forEach(m => {
-                    m.classList.remove('active');
-                });
-                document.body.style.overflow = '';
+                const openModals = document.querySelectorAll('.modal-overlay.active');
+                if (openModals.length) {
+                    openModals.forEach(m => m.classList.remove('active'));
+                    document.body.style.overflow = '';
+                    restoreModalFocus();
+                }
             }
         });
 
         // ===== FORM SUBMIT =====
+        // Номер WhatsApp для приёма заявок (только цифры, формат 996XXXXXXXXX)
+        const WHATSAPP_NUMBER = '996700000000'; // TODO: заменить на реальный номер компании
         function handleSubmit(e) {
             e.preventDefault();
             const form = document.getElementById('contactForm');
+            if (!form.checkValidity()) { form.reportValidity(); return; }
             const success = document.getElementById('formSuccess');
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const sel = document.getElementById('service');
+            const service = sel.selectedIndex > 0 ? sel.options[sel.selectedIndex].text : '—';
+            const comment = document.getElementById('comment').value.trim();
+            let text = 'Здравствуйте! Заявка с сайта «Ваши Окна».\n'
+                + 'Имя: ' + name + '\n'
+                + 'Телефон: ' + phone + '\n'
+                + 'Услуга: ' + service;
+            if (comment) text += '\nКомментарий: ' + comment;
+            window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text), '_blank');
 
             form.style.display = 'none';
             success.classList.add('show');
@@ -2120,8 +2195,27 @@
                 form.reset();
                 form.style.display = 'block';
                 success.classList.remove('show');
-            }, 5000);
+            }, 6000);
         }
+
+        // ===== HERO VIDEO: грузим только на десктопе и без reduced-motion =====
+        (function () {
+            const v = document.getElementById('heroVideo');
+            if (!v) return;
+            const okDesktop = window.matchMedia('(min-width: 1024px)').matches;
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (okDesktop && !reduce) {
+                const s = v.querySelector('source');
+                if (s && s.dataset.src) {
+                    s.src = s.dataset.src;
+                    v.load();
+                    v.play().catch(() => {});
+                }
+            }
+        })();
+
+        // ===== A11Y: прячем декоративные иконки от скринридеров =====
+        document.querySelectorAll('i.fas, i.fab, i.far').forEach(el => el.setAttribute('aria-hidden', 'true'));
     </script>
 </body>
 </html>
