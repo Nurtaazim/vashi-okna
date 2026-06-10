@@ -530,6 +530,190 @@
             font-size: 14px;
         }
 
+        /* ===== SERVICES ORBIT ===== */
+        .services-orbit {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .orbit-stage {
+            position: relative;
+            width: 540px;
+            height: 540px;
+            --r: 200px;
+        }
+        .orbit-stage::after {
+            content: '';
+            position: absolute;
+            inset: 70px;
+            border-radius: 50%;
+            border: 1px dashed rgba(27, 126, 194, 0.22);
+            pointer-events: none;
+        }
+        .orbit-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 162px;
+            height: 162px;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+        .orbit-hub {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #ffffff 0%, var(--primary-pale) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 18px 50px rgba(27, 126, 194, 0.35), inset 0 2px 12px rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .orbit-hub img {
+            width: 74%;
+            height: auto;
+        }
+        .orbit-glow {
+            position: absolute;
+            inset: -40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(27, 126, 194, 0.45) 0%, rgba(27, 126, 194, 0) 70%);
+            z-index: -1;
+            animation: hubPulse 4.5s ease-in-out infinite;
+        }
+        .orbit-ring-deco {
+            position: absolute;
+            inset: -18px;
+            border-radius: 50%;
+            border: 2px dashed rgba(27, 126, 194, 0.45);
+            animation: orbitSpin 16s linear infinite;
+        }
+        .orbit-ring-deco--2 {
+            inset: -32px;
+            border: 1px solid rgba(27, 126, 194, 0.14);
+            animation-duration: 28s;
+            animation-direction: reverse;
+        }
+        .orbit-ring {
+            position: absolute;
+            inset: 0;
+            animation: orbitSpin 48s linear infinite;
+        }
+        .orbit-stage:hover .orbit-ring,
+        .orbit-stage:hover .node-content,
+        .orbit-stage:focus-within .orbit-ring,
+        .orbit-stage:focus-within .node-content {
+            animation-play-state: paused;
+        }
+        .service-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 118px;
+            height: 118px;
+            margin: -59px;
+            padding: 0;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transform: rotate(calc(var(--i) * 72deg)) translateY(calc(-1 * var(--r))) rotate(calc(var(--i) * -72deg));
+        }
+        .node-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--white);
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 10px 30px rgba(27, 126, 194, 0.10);
+            padding: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            animation: orbitSpinRev 48s linear infinite;
+        }
+        .service-node:hover .node-content,
+        .service-node:focus-visible .node-content {
+            transform: scale(1.09);
+            border-color: var(--primary);
+            box-shadow: 0 16px 42px rgba(27, 126, 194, 0.28);
+        }
+        .node-ic {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            background: var(--primary-pale);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .node-ic i {
+            font-size: 20px;
+            color: var(--primary);
+        }
+        .node-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.2;
+            text-align: center;
+        }
+        @keyframes orbitSpin { to { transform: rotate(360deg); } }
+        @keyframes orbitSpinRev { to { transform: rotate(-360deg); } }
+        @keyframes hubPulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.07); }
+        }
+        @media (max-width: 859px) {
+            .services-orbit { margin-top: 30px; }
+            .orbit-stage { width: 100%; height: auto; }
+            .orbit-stage::after { display: none; }
+            .orbit-center {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                width: 150px;
+                height: 150px;
+                margin: 0 auto 36px;
+            }
+            .orbit-ring-deco { animation: none; }
+            .orbit-ring {
+                position: static;
+                inset: auto;
+                animation: none;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .service-node {
+                position: static;
+                top: auto;
+                left: auto;
+                width: 100%;
+                height: auto;
+                margin: 0;
+                transform: none !important;
+            }
+            .node-content {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 14px;
+                border-radius: 16px;
+                padding: 18px 20px;
+                animation: none;
+            }
+            .node-label { font-size: 15px; text-align: left; }
+        }
+        @media (max-width: 480px) {
+            .orbit-ring { grid-template-columns: 1fr; }
+        }
+
         /* ===== PRODUCTION ===== */
         .production {
             padding: 120px 0;
@@ -1470,60 +1654,30 @@
         <div class="container">
             <h2 class="section-title reveal">Наши услуги</h2>
             <p class="section-subtitle reveal">Полный цикл: от производства до установки</p>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-card-img">
-                        <img loading="lazy" decoding="async" src="plastic-windows.jpg" alt="Пластиковые окна ПВХ" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="img-placeholder" style="display:none;"><span><i class="fas fa-window-maximize"></i><br>Пластиковые окна</span></div>
+            <div class="services-orbit reveal">
+                <div class="orbit-stage">
+                    <div class="orbit-center">
+                        <span class="orbit-glow" aria-hidden="true"></span>
+                        <span class="orbit-ring-deco" aria-hidden="true"></span>
+                        <span class="orbit-ring-deco orbit-ring-deco--2" aria-hidden="true"></span>
+                        <div class="orbit-hub"><img src="logo.png" alt="Ваши Окна"></div>
                     </div>
-                    <div class="service-card-body">
-                        <h3>Пластиковые окна</h3>
-                        <p>Качественные ПВХ-окна с отличной тепло- и звукоизоляцией. Подходят для квартир, домов и офисов.</p>
-                        <button class="btn btn-outline-blue" onclick="openModal('plastic')">Подробнее</button>
-                    </div>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-card-img">
-                        <img loading="lazy" decoding="async" src="aluminum-windows.jpg" alt="Алюминиевые окна" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="img-placeholder" style="display:none;"><span><i class="fas fa-border-all"></i><br>Алюминиевые окна</span></div>
-                    </div>
-                    <div class="service-card-body">
-                        <h3>Алюминиевые окна</h3>
-                        <p>Лёгкие и прочные алюминиевые конструкции. Идеальны для больших проёмов и панорамного остекления.</p>
-                        <button class="btn btn-outline-blue" onclick="openModal('aluminum')">Подробнее</button>
-                    </div>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-card-img">
-                        <img loading="lazy" decoding="async" src="facades.jpg" alt="Алюминиевые фасады зданий" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="img-placeholder" style="display:none;"><span><i class="fas fa-building"></i><br>Фасады</span></div>
-                    </div>
-                    <div class="service-card-body">
-                        <h3>Фасады</h3>
-                        <p>Современные алюминиевые фасады для жилых и коммерческих зданий. Стильно, надёжно, долговечно.</p>
-                        <button class="btn btn-outline-blue" onclick="openModal('facades')">Подробнее</button>
-                    </div>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-card-img">
-                        <img loading="lazy" decoding="async" src="sliding-doors.jpg" alt="Раздвижные двери" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="img-placeholder" style="display:none;"><span><i class="fas fa-door-open"></i><br>Раздвижные двери</span></div>
-                    </div>
-                    <div class="service-card-body">
-                        <h3>Раздвижные двери</h3>
-                        <p>Элегантные раздвижные системы для интерьера и экстерьера. Экономят пространство и добавляют стиль.</p>
-                        <button class="btn btn-outline-blue" onclick="openModal('sliding')">Подробнее</button>
-                    </div>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-card-img">
-                        <img loading="lazy" decoding="async" src="installation.jpg" alt="Установка окон мастером" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="img-placeholder" style="display:none;"><span><i class="fas fa-truck"></i><br>Доставка и установка</span></div>
-                    </div>
-                    <div class="service-card-body">
-                        <h3>Доставка и установка</h3>
-                        <p>Собственная служба доставки и опытные монтажники. Установим окна в срок и аккуратно.</p>
-                        <button class="btn btn-outline-blue" onclick="openModal('installation')">Подробнее</button>
+                    <div class="orbit-ring">
+                        <button class="service-node" style="--i:0" type="button" onclick="openModal('plastic')">
+                            <span class="node-content"><span class="node-ic"><i class="fas fa-window-maximize"></i></span><span class="node-label">Пластиковые окна</span></span>
+                        </button>
+                        <button class="service-node" style="--i:1" type="button" onclick="openModal('aluminum')">
+                            <span class="node-content"><span class="node-ic"><i class="fas fa-border-all"></i></span><span class="node-label">Алюминиевые окна</span></span>
+                        </button>
+                        <button class="service-node" style="--i:2" type="button" onclick="openModal('facades')">
+                            <span class="node-content"><span class="node-ic"><i class="fas fa-building"></i></span><span class="node-label">Фасады</span></span>
+                        </button>
+                        <button class="service-node" style="--i:3" type="button" onclick="openModal('sliding')">
+                            <span class="node-content"><span class="node-ic"><i class="fas fa-door-open"></i></span><span class="node-label">Раздвижные двери</span></span>
+                        </button>
+                        <button class="service-node" style="--i:4" type="button" onclick="openModal('installation')">
+                            <span class="node-content"><span class="node-ic"><i class="fas fa-truck"></i></span><span class="node-label">Доставка и установка</span></span>
+                        </button>
                     </div>
                 </div>
             </div>
