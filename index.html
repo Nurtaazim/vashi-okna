@@ -1395,7 +1395,7 @@
     <div class="hero-wrapper">
         <div class="hero-bg">
             <video id="heroVideo" muted loop playsinline preload="none" poster="hero-bg.jpg" aria-hidden="true">
-                <source data-src="hero-video.mp4" type="video/mp4">
+                <source data-src="hero-video-2.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -2201,13 +2201,12 @@
             }, 6000);
         }
 
-        // ===== HERO VIDEO: грузим только на десктопе и без reduced-motion =====
+        // ===== HERO VIDEO: грузим на всех устройствах, кроме prefers-reduced-motion =====
         (function () {
             const v = document.getElementById('heroVideo');
             if (!v) return;
-            const okDesktop = window.matchMedia('(min-width: 1024px)').matches;
             const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (okDesktop && !reduce) {
+            if (!reduce) {
                 const s = v.querySelector('source');
                 if (s && s.dataset.src) {
                     s.src = s.dataset.src;
