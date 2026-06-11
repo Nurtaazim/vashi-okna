@@ -596,12 +596,9 @@
         .orbit-ring {
             position: absolute;
             inset: 0;
-            animation: orbitSpin 52s linear infinite;
         }
-        .orbit-stage:hover .orbit-ring,
-        .orbit-stage:hover .node-content,
-        .orbit-stage:focus-within .orbit-ring,
-        .orbit-stage:focus-within .node-content {
+        .orbit-stage:hover .service-node,
+        .orbit-stage:focus-within .service-node {
             animation-play-state: paused;
         }
         .service-node {
@@ -616,6 +613,8 @@
             background: none;
             cursor: pointer;
             transform: rotate(calc(var(--i) * 72deg)) translateY(calc(-1 * var(--r))) rotate(calc(var(--i) * -72deg));
+            animation: orbit 52s linear infinite;
+            animation-delay: calc(var(--i) * -10.4s);
         }
         .node-content {
             position: relative;
@@ -623,7 +622,6 @@
             height: 100%;
             border-radius: 50%;
             transition: transform 0.3s ease;
-            animation: orbitSpinRev 52s linear infinite;
         }
         .node-photo {
             width: 100%;
@@ -656,7 +654,10 @@
             box-shadow: 0 16px 44px rgba(27, 126, 194, 0.32);
         }
         @keyframes orbitSpin { to { transform: rotate(360deg); } }
-        @keyframes orbitSpinRev { to { transform: rotate(-360deg); } }
+        @keyframes orbit {
+            from { transform: rotate(0deg) translateY(calc(-1 * var(--r))) rotate(0deg); }
+            to   { transform: rotate(360deg) translateY(calc(-1 * var(--r))) rotate(-360deg); }
+        }
         @keyframes hubPulse {
             0%, 100% { opacity: 0.5; transform: scale(1); }
             50% { opacity: 0.9; transform: scale(1.07); }
@@ -1544,6 +1545,7 @@
             html { scroll-behavior: auto; }
             .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
             *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+            .service-node { animation: none !important; }
         }
 
         /* ===== COUNTERS ===== */
