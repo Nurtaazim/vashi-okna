@@ -1544,6 +1544,99 @@
             .service-node { animation: none !important; }
         }
 
+        /* ===== MODAL SLIDER ===== */
+        .mslider {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 28px;
+            background: #0E1B2A;
+            box-shadow: 0 12px 34px rgba(27, 126, 194, 0.16);
+        }
+        .mslider-track {
+            display: flex;
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mslide {
+            min-width: 100%;
+            position: relative;
+        }
+        .mslide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        .mslide-cap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 56px 22px 40px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.82));
+            color: #fff;
+        }
+        .mslide-cap h4 {
+            font-size: 19px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .mslide-cap p {
+            font-size: 13.5px;
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.88);
+        }
+        .mslider-btn {
+            position: absolute;
+            top: 42%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-size: 16px;
+            z-index: 2;
+            transition: background 0.2s ease;
+        }
+        .mslider-btn:hover { background: #fff; }
+        .mslider-btn.prev { left: 12px; }
+        .mslider-btn.next { right: 12px; }
+        .mslider-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 7px;
+            z-index: 2;
+        }
+        .mslider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        .mslider-dot.active {
+            background: #fff;
+            width: 22px;
+            border-radius: 4px;
+        }
+        @media (max-width: 768px) {
+            .mslide img { height: 220px; }
+            .mslide-cap { padding: 46px 16px 34px; }
+            .mslide-cap h4 { font-size: 17px; }
+        }
+
         /* ===== COUNTERS ===== */
         .counter {
             font-family: 'Montserrat', sans-serif;
@@ -1903,6 +1996,23 @@
                 <p>Качественные ПВХ-окна с отличной тепло- и звукоизоляцией для любого помещения</p>
             </div>
             <div class="modal-body">
+                <div class="mslider">
+                    <div class="mslider-track">
+                        <div class="mslide"><img loading="lazy" decoding="async" src="plastic-windows.jpg" alt="Поворотно-откидное окно"><div class="mslide-cap"><h4>Поворотно-откидное окно</h4><p>Двустворчатое окно с двумя режимами открывания — самый популярный вариант для квартир.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="work-5.jpg" alt="Балконный блок"><div class="mslide-cap"><h4>Балконный блок</h4><p>Окно и дверь для выхода на балкон или лоджию в едином тёплом контуре.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="work-1.jpg" alt="Панорамное остекление"><div class="mslide-cap"><h4>Панорамное остекление</h4><p>Трёхстворчатые и панорамные окна для гостиных, залов и широких проёмов.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="production.jpg" alt="Профиль в разрезе"><div class="mslide-cap"><h4>Профиль в разрезе</h4><p>Многокамерный ПВХ-профиль (Nordprof, VEKA) — тёплый контур и шумоизоляция до 40 дБ.</p></div></div>
+                    </div>
+                    <button class="mslider-btn prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+                    <button class="mslider-btn next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+                    <div class="mslider-dots">
+                        <button class="mslider-dot" type="button" aria-label="Слайд 1"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 2"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 3"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 4"></button>
+                    </div>
+                </div>
+
                 <div class="modal-section">
                     <h3><i class="fas fa-th-list"></i> Виды пластиковых окон</h3>
                     <ul class="modal-list">
@@ -1949,6 +2059,23 @@
                 <p>Лёгкие и прочные конструкции для современных зданий и панорамного остекления</p>
             </div>
             <div class="modal-body">
+                <div class="mslider">
+                    <div class="mslider-track">
+                        <div class="mslide"><img loading="lazy" decoding="async" src="aluminum-windows.jpg" alt="Тёплое остекление"><div class="mslide-cap"><h4>Тёплое остекление</h4><p>Алюминиевый профиль с терморазрывом для жилых и отапливаемых помещений.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="hero-bg.jpg" alt="Панорамное остекление"><div class="mslide-cap"><h4>Панорамное остекление</h4><p>Остекление от пола до потолка — максимум света и вида.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="work-3.jpg" alt="Витражные системы"><div class="mslide-cap"><h4>Витражные системы</h4><p>Для коммерческих и офисных зданий — большие проёмы и тонкие рамы.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="gallery-1.jpg" alt="Профиль в разрезе"><div class="mslide-cap"><h4>Профиль в разрезе</h4><p>Алюминиевый профиль с терморазрывом в разрезе — прочность и тепло.</p></div></div>
+                    </div>
+                    <button class="mslider-btn prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+                    <button class="mslider-btn next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+                    <div class="mslider-dots">
+                        <button class="mslider-dot" type="button" aria-label="Слайд 1"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 2"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 3"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 4"></button>
+                    </div>
+                </div>
+
                 <div class="modal-section">
                     <h3><i class="fas fa-th-list"></i> Виды алюминиевых окон</h3>
                     <ul class="modal-list">
@@ -1994,6 +2121,23 @@
                 <p>Современные фасадные системы для жилых и коммерческих зданий</p>
             </div>
             <div class="modal-body">
+                <div class="mslider">
+                    <div class="mslider-track">
+                        <div class="mslide"><img loading="lazy" decoding="async" src="svc-fac-structural.jpg" alt="Структурный фасад"><div class="mslide-cap"><h4>Структурный фасад</h4><p>Полностью стеклянный фасад без видимых рам — сплошное остекление.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="svc-fac-semi.jpg" alt="Стоечно-ригельный"><div class="mslide-cap"><h4>Стоечно-ригельный</h4><p>Классическая фасадная система для офисных зданий и торговых центров.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="svc-fac-vent.jpg" alt="Вентилируемый фасад"><div class="mslide-cap"><h4>Вентилируемый фасад</h4><p>С воздушным зазором — дополнительная теплоизоляция и защита стен.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="work-6.jpg" alt="Жилые комплексы"><div class="mslide-cap"><h4>Жилые комплексы</h4><p>Современный архитектурный облик многоэтажных домов и бизнес-центров.</p></div></div>
+                    </div>
+                    <button class="mslider-btn prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+                    <button class="mslider-btn next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+                    <div class="mslider-dots">
+                        <button class="mslider-dot" type="button" aria-label="Слайд 1"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 2"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 3"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 4"></button>
+                    </div>
+                </div>
+
                 <div class="modal-section">
                     <h3><i class="fas fa-th-list"></i> Виды фасадных систем</h3>
                     <ul class="modal-list">
@@ -2038,6 +2182,23 @@
                 <p>Элегантные раздвижные системы, которые экономят пространство и добавляют стиль</p>
             </div>
             <div class="modal-body">
+                <div class="mslider">
+                    <div class="mslider-track">
+                        <div class="mslide"><img loading="lazy" decoding="async" src="sliding-doors.jpg" alt="Слайдинговая дверь"><div class="mslide-cap"><h4>Слайдинговая дверь</h4><p>Створка сдвигается вдоль стены — классический параллельно-сдвижной вариант.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="work-4.jpg" alt="Выход на террасу"><div class="mslide-cap"><h4>Выход на террасу</h4><p>Панорамный выход в сад или на террасу с большой площадью остекления.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="svc-door-folding.jpg" alt="Складная (гармошка)"><div class="mslide-cap"><h4>Складная (гармошка)</h4><p>Створки складываются гармошкой, открывая максимальный проём.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="work-2.jpg" alt="Большие проёмы"><div class="mslide-cap"><h4>Большие проёмы</h4><p>Подъёмно-сдвижные системы (HS) для проёмов шириной до 6 метров.</p></div></div>
+                    </div>
+                    <button class="mslider-btn prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+                    <button class="mslider-btn next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+                    <div class="mslider-dots">
+                        <button class="mslider-dot" type="button" aria-label="Слайд 1"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 2"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 3"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 4"></button>
+                    </div>
+                </div>
+
                 <div class="modal-section">
                     <h3><i class="fas fa-th-list"></i> Виды раздвижных дверей</h3>
                     <ul class="modal-list">
@@ -2082,6 +2243,23 @@
                 <p>Полный комплекс услуг от транспортировки до финальной отделки</p>
             </div>
             <div class="modal-body">
+                <div class="mslider">
+                    <div class="mslider-track">
+                        <div class="mslide"><img loading="lazy" decoding="async" src="svc-delivery.jpg" alt="Доставка автопарком"><div class="mslide-cap"><h4>Доставка автопарком</h4><p>Собственный транспорт — бережная доставка в назначенное время, по Бишкеку бесплатно.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="installation.jpg" alt="Монтаж по ГОСТу"><div class="mslide-cap"><h4>Монтаж по ГОСТу</h4><p>Установка с пеной и гидроизоляцией: подоконники, отливы, откосы, регулировка.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="gallery-5.jpg" alt="Своё производство"><div class="mslide-cap"><h4>Своё производство</h4><p>Изготовление по вашим размерам на собственном заводе в Бишкеке.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="work-1.jpg" alt="Готовый результат"><div class="mslide-cap"><h4>Готовый результат</h4><p>Аккуратный монтаж, вывоз мусора и 5 лет гарантии на работы и окна.</p></div></div>
+                    </div>
+                    <button class="mslider-btn prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
+                    <button class="mslider-btn next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
+                    <div class="mslider-dots">
+                        <button class="mslider-dot" type="button" aria-label="Слайд 1"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 2"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 3"></button>
+                        <button class="mslider-dot" type="button" aria-label="Слайд 4"></button>
+                    </div>
+                </div>
+
                 <div class="modal-section">
                     <h3><i class="fas fa-truck"></i> Доставка</h3>
                     <ul class="modal-list">
@@ -2379,6 +2557,30 @@
                 }
             }
         })();
+
+        // ===== MODAL SLIDERS =====
+        document.querySelectorAll('.mslider').forEach(function (sl) {
+            var track = sl.querySelector('.mslider-track');
+            var slides = sl.querySelectorAll('.mslide');
+            var dots = sl.querySelectorAll('.mslider-dot');
+            var idx = 0;
+            function go(i) {
+                idx = (i + slides.length) % slides.length;
+                track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+                dots.forEach(function (d, k) { d.classList.toggle('active', k === idx); });
+            }
+            var prev = sl.querySelector('.prev'), next = sl.querySelector('.next');
+            if (prev) prev.addEventListener('click', function (e) { e.stopPropagation(); go(idx - 1); });
+            if (next) next.addEventListener('click', function (e) { e.stopPropagation(); go(idx + 1); });
+            dots.forEach(function (d, k) { d.addEventListener('click', function (e) { e.stopPropagation(); go(k); }); });
+            var sx = 0;
+            track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+            track.addEventListener('touchend', function (e) {
+                var dx = e.changedTouches[0].clientX - sx;
+                if (Math.abs(dx) > 40) go(dx < 0 ? idx + 1 : idx - 1);
+            }, { passive: true });
+            go(0);
+        });
 
         // ===== A11Y: прячем декоративные иконки от скринридеров =====
         document.querySelectorAll('i.fas, i.fab, i.far').forEach(el => el.setAttribute('aria-hidden', 'true'));
