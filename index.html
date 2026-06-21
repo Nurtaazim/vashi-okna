@@ -1636,6 +1636,14 @@
             .mslide-cap { padding: 46px 16px 34px; }
             .mslide-cap h4 { font-size: 17px; }
         }
+        /* Инфографики профилей в модалках окон: картинка целиком, подпись — статичным блоком под ней */
+        #modal-plastic .mslide, #modal-aluminum .mslide { background: #fff; }
+        #modal-plastic .mslide img, #modal-aluminum .mslide img { height: auto; }
+        #modal-plastic .mslide-cap, #modal-aluminum .mslide-cap {
+            position: static; background: #fff; color: #1f2d3d; padding: 14px 20px 18px;
+        }
+        #modal-plastic .mslide-cap h4, #modal-aluminum .mslide-cap h4 { color: #1f2d3d; }
+        #modal-plastic .mslide-cap p, #modal-aluminum .mslide-cap p { color: #555; }
 
         /* ===== COUNTERS ===== */
         .counter {
@@ -1698,7 +1706,7 @@
             <div class="hero-trust">
                 <div class="trust-item">
                     <i class="fas fa-check-circle"></i>
-                    <span><strong class="counter" data-target="10">10</strong> лет на рынке</span>
+                    <span><strong class="counter" data-target="15">15</strong> лет на рынке</span>
                 </div>
                 <div class="trust-item">
                     <i class="fas fa-check-circle"></i>
@@ -1931,16 +1939,16 @@
                 <div class="contact-info reveal">
                     <h3>Контактная информация</h3>
                     <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>г. Бишкек, [адрес]</p>
-                    </div>
-                    <div class="contact-item">
                         <i class="fas fa-phone-alt"></i>
-                        <p><a href="tel:+996000000000">[номер телефона]</a></p>
+                        <p><a href="tel:+996704510510">+996 704 510 510</a></p>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-whatsapp"></i>
-                        <p><a href="https://wa.me/996000000000">[WhatsApp]</a></p>
+                        <p><a href="https://wa.me/996755510510" target="_blank" rel="noopener">+996 755 510 510</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <p><a href="https://instagram.com/vashiokna.kg" target="_blank" rel="noopener">@vashiokna.kg</a></p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -1998,10 +2006,9 @@
             <div class="modal-body">
                 <div class="mslider">
                     <div class="mslider-track">
-                        <div class="mslide"><img loading="lazy" decoding="async" src="plastic-windows.jpg" alt="Поворотно-откидное окно"><div class="mslide-cap"><h4>Поворотно-откидное окно</h4><p>Двустворчатое окно с двумя режимами открывания — самый популярный вариант для квартир.</p></div></div>
-                        <div class="mslide"><img loading="lazy" decoding="async" src="work-5.jpg" alt="Балконный блок"><div class="mslide-cap"><h4>Балконный блок</h4><p>Окно и дверь для выхода на балкон или лоджию в едином тёплом контуре.</p></div></div>
-                        <div class="mslide"><img loading="lazy" decoding="async" src="work-1.jpg" alt="Панорамное остекление"><div class="mslide-cap"><h4>Панорамное остекление</h4><p>Трёхстворчатые и панорамные окна для гостиных, залов и широких проёмов.</p></div></div>
-                        <div class="mslide"><img loading="lazy" decoding="async" src="production.jpg" alt="Профиль в разрезе"><div class="mslide-cap"><h4>Профиль в разрезе</h4><p>Многокамерный ПВХ-профиль (Nordprof, VEKA) — тёплый контур и шумоизоляция до 40 дБ.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="pvc-5kam.jpg" alt="Разрез 5-камерного ПВХ-профиля, толщина 70–76 мм"><div class="mslide-cap"><h4>5-камерный профиль (70–76 мм)</h4><p>Максимальная защита от дождя, снега, ветра и града. Тёплый контур и шумоизоляция.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="pvc-4kam.jpg" alt="Разрез 4-камерного ПВХ-профиля, толщина 64–67 мм"><div class="mslide-cap"><h4>4-камерный профиль (64–67 мм)</h4><p>Тишина и тепло внутри помещения — оптимальный профиль для квартир и домов.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="pvc-steklopaket.jpg" alt="Виды стеклопакетов в разрезе"><div class="mslide-cap"><h4>Стеклопакеты</h4><p>Одно-, двух- и трёхкамерные: чем больше камер, тем теплее. Энергосберегающие низкоэмиссионные стёкла.</p></div></div>
                     </div>
                     <button class="mslider-btn prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
                     <button class="mslider-btn next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
@@ -2009,7 +2016,6 @@
                         <button class="mslider-dot" type="button" aria-label="Слайд 1"></button>
                         <button class="mslider-dot" type="button" aria-label="Слайд 2"></button>
                         <button class="mslider-dot" type="button" aria-label="Слайд 3"></button>
-                        <button class="mslider-dot" type="button" aria-label="Слайд 4"></button>
                     </div>
                 </div>
 
@@ -2061,10 +2067,9 @@
             <div class="modal-body">
                 <div class="mslider">
                     <div class="mslider-track">
-                        <div class="mslide"><img loading="lazy" decoding="async" src="aluminum-windows.jpg" alt="Тёплое остекление"><div class="mslide-cap"><h4>Тёплое остекление</h4><p>Алюминиевый профиль с терморазрывом для жилых и отапливаемых помещений.</p></div></div>
-                        <div class="mslide"><img loading="lazy" decoding="async" src="hero-bg.jpg" alt="Панорамное остекление"><div class="mslide-cap"><h4>Панорамное остекление</h4><p>Остекление от пола до потолка — максимум света и вида.</p></div></div>
-                        <div class="mslide"><img loading="lazy" decoding="async" src="work-3.jpg" alt="Витражные системы"><div class="mslide-cap"><h4>Витражные системы</h4><p>Для коммерческих и офисных зданий — большие проёмы и тонкие рамы.</p></div></div>
-                        <div class="mslide"><img loading="lazy" decoding="async" src="gallery-1.jpg" alt="Профиль в разрезе"><div class="mslide-cap"><h4>Профиль в разрезе</h4><p>Алюминиевый профиль с терморазрывом в разрезе — прочность и тепло.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="alu-awd45.jpg" alt="Разрез алюминиевого профиля AWD 45"><div class="mslide-cap"><h4>Профиль AWD 45</h4><p>Холодный, без терморазрыва: окна, двери и витражи без теплоизоляции. Глубина рамы 45 мм, створки 55 мм.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="alu-awd78.jpg" alt="Разрез алюминиевого профиля AWD 78"><div class="mslide-cap"><h4>Профиль AWD 78</h4><p>Комбинированный, с термовставкой: окна, двери и витражи. Монтажная глубина рамы 78 мм.</p></div></div>
+                        <div class="mslide"><img loading="lazy" decoding="async" src="alu-rw64.jpg" alt="Разрез алюминиевого профиля RW 64"><div class="mslide-cap"><h4>Профиль RW 64</h4><p>Тёплый, с термо- и звукоизоляцией для фасадов и витрин. Рама 64 мм, створка 72 мм.</p></div></div>
                     </div>
                     <button class="mslider-btn prev" type="button" aria-label="Назад"><i class="fas fa-chevron-left"></i></button>
                     <button class="mslider-btn next" type="button" aria-label="Вперёд"><i class="fas fa-chevron-right"></i></button>
@@ -2072,7 +2077,6 @@
                         <button class="mslider-dot" type="button" aria-label="Слайд 1"></button>
                         <button class="mslider-dot" type="button" aria-label="Слайд 2"></button>
                         <button class="mslider-dot" type="button" aria-label="Слайд 3"></button>
-                        <button class="mslider-dot" type="button" aria-label="Слайд 4"></button>
                     </div>
                 </div>
 
@@ -2334,16 +2338,15 @@
                     </div>
                     <div class="footer-contact-item">
                         <i class="fas fa-phone-alt"></i>
-                        <span>[телефон]</span>
+                        <span>+996 704 510 510</span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fas fa-envelope"></i>
                         <span>[email]</span>
                     </div>
                     <div class="footer-socials">
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/vashiokna.kg" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/996755510510" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -2515,7 +2518,7 @@
 
         // ===== FORM SUBMIT =====
         // Номер WhatsApp для приёма заявок (только цифры, формат 996XXXXXXXXX)
-        const WHATSAPP_NUMBER = '996700000000'; // TODO: заменить на реальный номер компании
+        const WHATSAPP_NUMBER = '996755510510';
         function handleSubmit(e) {
             e.preventDefault();
             const form = document.getElementById('contactForm');
